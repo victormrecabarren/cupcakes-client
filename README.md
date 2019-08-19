@@ -6,13 +6,13 @@
 
 - Currently only available for iOS testing
 
-## Steps to get started with React Native:
+## Steps to get started with React Native below:
 # Install process:
 - `brew install node`
 - `brew install watchman`
 - `brew tap AdoptOpenJDK/openjdk`
 - `brew cask install adoptopenjdk8`
-- npm install -g react-native-cli
+- `npm install -g react-native-cli`
 - Download Xcode from Apple's development page
 - After Xcode downloads, go ahead and make command line tools available: Open "Preferences..." and go to the Locations tab. Select your Xcode version from the "Command Line Tools" dropdown.
 - Install "CocoaPods", a dependency manager for Xcode:
@@ -38,6 +38,7 @@
 - Press the Play icon at top left of Xcode to build and run, or alternatively, `npm start` from command line
 - App should begin installing on your device shortly
 - Follow the official documentation troubleshooting procedures if any errors: https://facebook.github.io/react-native/docs/running-on-device
+- Following installation, app may be viewed wirelessly on device. (Must be connected to same wifi network)
 
 ## To connect to local backend server (localhost:<port>)
 
