@@ -8,12 +8,12 @@ import {
   StatusBar,
 } from 'react-native'
 
-class Body extends Component {
+class Show extends Component {
   render(){
     return(
-      <Text>Body Comp</Text>
+      <Text>show page</Text>
     )
   }
 }
 
-export default Body
+export default Show

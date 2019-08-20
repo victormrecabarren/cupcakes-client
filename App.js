@@ -17,8 +17,8 @@ import SwipeUpDown from 'react-native-swipe-up-down';
 import { baseURL } from './constants'
 
 // components
-import Header from './components/Header'
-import Body from './components/Body'
+import Index from './components/Index'
+import Show from './components/Show'
 import Footer from './components/Footer'
 import ShoppingCart from './components/ShoppingCart'
 
@@ -27,7 +27,7 @@ import ShoppingCart from './components/ShoppingCart'
 class App extends Component {
   state = {
     cupcakes: '',
-    thing: false
+    selectedCupcake: ''
   }
 
   componentDidMount = () => {
@@ -45,28 +45,42 @@ class App extends Component {
           this.state.cupcakes
           ?
             <NativeRouter>
-            <View style={styles.header}>
-              <Header />
-            </View>
 
-            <View style={styles.body}>
-              <Body />
-            </View>
+              <Route
+                exact path="/"
+                render={(routeProps) => (
+                  <Index
+                  {...routeProps}
+                  cupcakes={this.state.cupcakes}
+                  />
+                )}
+              />
 
-            <SwipeUpDown
-            itemMini={<Footer />} // Pass props component when collapsed
-            itemFull={<ShoppingCart
-                        item="an item"
-             />} // Pass props component when show full
-            onShowMini={() => console.log('mini')}
-            onShowFull={() => console.log('full')}
-            onMoveDown={() => console.log('down')}
-            onMoveUp={() => console.log('up')}
-            disablePressToShow={false} // Press item mini to show full
-            style={{ backgroundColor: 'green' }} // style for swipe
-            animation="easeInEaseOut"
-            swipeHeight={120}
-            />
+              <Route
+                path="/cupcake"
+                render={(routeProps) => (
+                  <Show
+                  {...routeProps}
+                  cupcake={this.state.selectedCupcake}
+                  />
+                )}
+              />
+
+              <SwipeUpDown
+              itemMini={<Footer />}
+              itemFull={<ShoppingCart
+                          item="an item"
+               />}
+              onShowMini={() => console.log('mini')}
+              onShowFull={() => console.log(this.state.cupcakes)}
+              onMoveDown={() => console.log('down')}
+              onMoveUp={() => console.log('up')}
+              disablePressToShow={true}
+              style={{ backgroundColor: 'green' }} // style for swipe
+              animation="easeInEaseOut"
+              swipeHeight={120}
+              />
+
           </NativeRouter>
 
           : null
@@ -75,28 +89,6 @@ class App extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  app: {
-    flexDirection: "column",
-  },
-  header: {
-    flex: 1,
-    backgroundColor: "red",
-    width: "100%",
-    height: 50,
-  },
-  body: {
-    flex: 6,
-    backgroundColor: "blue",
-    width: "100%",
-    height: 50,
-  },
-  footer: {
-    flex: 1,
-    backgroundColor: "green",
-    width: "100%",
-    height: 50,
-  }
-})
+
 
 export default App
