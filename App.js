@@ -1,11 +1,6 @@
+// React Native variables
 import React, {Fragment, Component} from 'react'
-
 import { NativeRouter, Route, Link } from 'react-router-native'
-
-import First from './components/First'
-
-import Second from './components/Second'
-
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,96 +10,92 @@ import {
   StatusBar,
 } from 'react-native'
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen'
+// 3rd party libraries
+import SwipeUpDown from 'react-native-swipe-up-down';
 
+// api url
 import { baseURL } from './constants'
 
+// components
+import Header from './components/Header'
+import Body from './components/Body'
+import Footer from './components/Footer'
+import ShoppingCart from './components/ShoppingCart'
+
+
+
 class App extends Component {
+  state = {
+    cupcakes: '',
+    thing: false
+  }
+
+  componentDidMount = () => {
+    fetch(baseURL + '/cupcakes')
+    .then(res=>res.json())
+    .then(cupcakes=>this.setState({
+      cupcakes: cupcakes
+    }))
+    .catch(err=>console.log(err))
+  }
+
   render() {
     return (
-    //   <Fragment>
-    //     <StatusBar barStyle="dark-content" />
-    //
-    //         <Header />
-    //         {global.HermesInternal == null ? null : (
-    //           <View style={styles.engine}>
-    //             <Text style={styles.footer}>Engine: Hermes</Text>
-    //           </View>
-    //         )}
-    <View
-      style={styles.main}
-      >
+
+          this.state.cupcakes
+          ?
             <NativeRouter>
-              <Link to="/">
-                <Text>First Comp</Text>
-              </Link>
-              <Link to="/1">
-                <Text>Second Comp</Text>
-              </Link>
+            <View style={styles.header}>
+              <Header />
+            </View>
 
+            <View style={styles.body}>
+              <Body />
+            </View>
 
-              <Route
-                path="/"
-                exact
-                component={First}
-              />
-              <Route
-                path="/1"
-                component={Second}
-              />
+            <SwipeUpDown
+            itemMini={<Footer />} // Pass props component when collapsed
+            itemFull={<ShoppingCart
+                        item="an item"
+             />} // Pass props component when show full
+            onShowMini={() => console.log('mini')}
+            onShowFull={() => console.log('full')}
+            onMoveDown={() => console.log('down')}
+            onMoveUp={() => console.log('up')}
+            disablePressToShow={false} // Press item mini to show full
+            style={{ backgroundColor: 'green' }} // style for swipe
+            animation="easeInEaseOut"
+            swipeHeight={120}
+            />
+          </NativeRouter>
 
-            </NativeRouter>
-          </View>
+          : null
+
     )
   }
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  app: {
+    flexDirection: "column",
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  header: {
+    flex: 1,
+    backgroundColor: "red",
+    width: "100%",
+    height: 50,
   },
   body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
+    flex: 6,
+    backgroundColor: "blue",
+    width: "100%",
+    height: 50,
   },
   footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-  main: {
-    marginTop:100,
-    marginLeft: 30,
+    flex: 1,
+    backgroundColor: "green",
+    width: "100%",
+    height: 50,
   }
 })
 

@@ -47,6 +47,9 @@
 - After installation, move the ngrok file into primary user folder (alternatively, set up an alias for easy command line access)
 - `~username/ngrok http <port>`
 - A new server should start. Use the secure forwarding address (`https`) provided by ngrok. (Should look something like `https://063ce9fa.ngrok.io`)
+- If using a rails backend, you must go into config > development.rb and add the following:
+`config.hosts <<https://587a85c3.ngrok.io`
+where the address after the `<<` is the secure address provided by ngrok
 
 - Use this address if using fetch requests to give the front-end access to a local back end server.
 
