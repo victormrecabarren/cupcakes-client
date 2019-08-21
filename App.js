@@ -55,7 +55,8 @@ class App extends Component {
             <NativeRouter>
 
               <Route
-                exact path="/"
+                exact
+                path="/"
                 render={(routeProps) => (
                   <Index
                   {...routeProps}
