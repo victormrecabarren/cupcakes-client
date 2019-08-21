@@ -66,20 +66,7 @@ class App extends Component {
                 )}
               />
 
-              <SwipeUpDown
-              itemMini={<Footer />}
-              itemFull={<ShoppingCart
-                          item="an item"
-               />}
-              onShowMini={() => console.log('mini')}
-              onShowFull={() => console.log(this.state.cupcakes)}
-              onMoveDown={() => console.log('down')}
-              onMoveUp={() => console.log('up')}
-              disablePressToShow={true}
-              style={{ backgroundColor: 'green' }} // style for swipe
-              animation="easeInEaseOut"
-              swipeHeight={120}
-              />
+              
 
           </NativeRouter>
 

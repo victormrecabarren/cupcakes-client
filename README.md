@@ -29,7 +29,7 @@
 - Plug in device via USB
 - Open Xcode and select "Open another project..."
 - Navigate to `ios` directory within the project, select the `<projectName>.xcworkspace` file
-- On right hand side, under Targets, select `<projectName>`
+- On left hand side, under Targets, select `<projectName>`
 - Under "General" tab, go to Deployment Info heading and choose Target Device along with iOS version
 - Under "Signing & Capabilities" tab, select a "Team" from the dropdown menu.
 - On right hand side, under Targets, select `<projectName>Tests`

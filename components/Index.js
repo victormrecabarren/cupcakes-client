@@ -14,10 +14,11 @@ import Header from './Header'
 class Index extends Component {
   render(){
     return(
-      <ScrollView
-        maximumZoomScale={5}
-        >
-        <View style={styles.body}>
+      <View>
+        <ScrollView
+          stickyHeaderIndices={[0]}
+          maximumZoomScale={5}
+          style={styles.body}>
           <View style={styles.header}>
             <Header />
           </View>
@@ -30,9 +31,9 @@ class Index extends Component {
             ))
           }
           </View>
-        </View>
+        </ScrollView>
 
-      </ScrollView>
+      </View>
     )
   }
 }
@@ -45,11 +46,11 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   header: {
-    flex: 1,
-    backgroundColor: "transparent"
+    height: 85,
+    backgroundColor: "rgba(255, 240, 231, 1)"
   },
   indexPage: {
-    flex: 7,
+    flex: 1,
     backgroundColor: "pink"
   }
 })
