@@ -10,8 +10,7 @@ import {
   StatusBar,
 } from 'react-native'
 
-// 3rd party libraries
-import SwipeUpDown from 'react-native-swipe-up-down';
+
 
 // api url
 import { baseURL } from './constants'
@@ -19,18 +18,27 @@ import { baseURL } from './constants'
 // components
 import Index from './components/Index'
 import Show from './components/Show'
-import Footer from './components/Footer'
-import ShoppingCart from './components/ShoppingCart'
+
 
 
 
 class App extends Component {
   state = {
     cupcakes: '',
-    selectedCupcake: ''
+    selectedCupcake: '',
+  }
+
+  chooseCupcake = (cupcake) => {
+    this.setState({
+      selectedCupcake: cupcake,
+    })
   }
 
   componentDidMount = () => {
+    this.state.cupcakes
+    ?
+    null
+    :
     fetch(baseURL + '/cupcakes')
     .then(res=>res.json())
     .then(cupcakes=>this.setState({
@@ -52,6 +60,7 @@ class App extends Component {
                   <Index
                   {...routeProps}
                   cupcakes={this.state.cupcakes}
+                  chooseCupcake={this.chooseCupcake}
                   />
                 )}
               />
@@ -65,8 +74,6 @@ class App extends Component {
                   />
                 )}
               />
-
-              
 
           </NativeRouter>
 

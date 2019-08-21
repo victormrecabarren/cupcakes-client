@@ -9,6 +9,12 @@ import {
   StatusBar,
 } from 'react-native'
 
+import {
+  NativeRouter,
+  Route,
+  Link
+} from 'react-router-native'
+
 import Header from './Header'
 
 class Index extends Component {
@@ -17,17 +23,25 @@ class Index extends Component {
       <View>
         <ScrollView
           stickyHeaderIndices={[0]}
-          maximumZoomScale={5}
           style={styles.body}>
           <View style={styles.header}>
-            <Header />
+            <Header
+             />
           </View>
           <View style={styles.indexPage}>
             {
               this.props.cupcakes.map(cupcake=>(
-              <Image
-                style={{width: 200, height: 200}}
-                source={{url: cupcake.image2}} />
+                <Link
+                  underlayColor="transparent"
+                  to="/cupcake"
+                  onPress={() => {
+                    this.props.chooseCupcake(cupcake)
+                  }}
+                  >
+                  <Image
+                    style={styles.images}
+                    source={{url: cupcake.image}} />
+                </Link>
             ))
           }
           </View>
@@ -40,7 +54,7 @@ class Index extends Component {
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: "rgba(255, 240, 231, 1)",
+    backgroundColor: "white",
     display: "flex",
     flexDirection: "column",
     height: "100%"
@@ -51,7 +65,16 @@ const styles = StyleSheet.create({
   },
   indexPage: {
     flex: 1,
-    backgroundColor: "pink"
+    backgroundColor: "white",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around"
+  },
+  images: {
+    width: 160,
+    height: 160,
+    marginBottom: 30
   }
 })
 

@@ -12,7 +12,7 @@ class Footer extends Component {
   render(){
     return(
       <View style={styles.footer}>
-        <Text>FooterCOmp</Text>
+        <Text>FooterComp</Text>
       </View>
     )
   }
@@ -21,7 +21,7 @@ class Footer extends Component {
 const styles = StyleSheet.create({
   footer: {
     flex: 1,
-    backgroundColor: "green",
+    backgroundColor: "rgba(255, 200, 200, 1)",
     width: "100%",
     height: 50,
   }
