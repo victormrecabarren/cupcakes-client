@@ -3,29 +3,95 @@ import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
+  Image,
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native'
 
 class Footer extends Component {
+  state = {
+    mini: true,
+    big: false,
+  }
+
+
   render(){
     return(
       <View style={styles.footer}>
         <View
           style={styles.priceBox}
           >
-            <Text>{this.props.cupcake.mini_price}</Text>
+            <Text style={styles.price}
+              >
+                {
+                  this.state.mini
+                  ?
+                  this.props.cupcake.mini_price
+                  :
+                  this.props.cupcake.price
+                }
+
+              </Text>
+              <Text>
+                mini / 1 dozen
+              </Text>
           </View>
         <View
           style={styles.console}
           >
+            <View
+              style={styles.optionsButton}
+              >
+              <TouchableOpacity
+                style={styles.topButton}
+                onPress={() => {
+                  this.setState({mini:true,big:false})
+                }}
+                >
+                <Text style={{    textAlign: "center"}}>mini</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.bottomButton}
+                onPress={() => {
+                  this.setState({mini:false,big:true})
+                }}
+                >
+                <Text style={{    textAlign: "center"}}>
+                  big
+                </Text>
+              </TouchableOpacity>
 
+            </View>
+
+            <View
+              style={styles.optionsButton}
+              >
+                <View style={styles.subtractButton}>
+                  <Text style={{textAlign: "center"}}>
+                    -
+                  </Text>
+                </View>
+
+              <Text style={{textAlign: "center"}}>
+                1
+              </Text>
+              <View style={styles.addButton}>
+                <Text style={{textAlign: "center"}}>
+                  +
+                </Text>
+              </View>
+
+            </View>
           </View>
         <View
           style={styles.add}
           >
-
+            <Image
+              style={{height: 45, width: 45, marginTop: "15%", marginLeft: "17%"}}
+              source={{url: "https://cdn.iconscout.com/icon/premium/png-256-thumb/add-to-bag-1-615158.png"}}
+             />
           </View>
       </View>
     )
@@ -40,27 +106,62 @@ const styles = StyleSheet.create({
     height: "100%",
     display: "flex",
     flexDirection: "row",
-
+    justifyContent: "space-between"
   },
   priceBox: {
     height: 70,
     width: 120,
     borderColor: "red",
     borderWidth: 1,
-    marginLeft: "8%",
+    marginLeft: "5%",
+    display: "flex",
+    flexDirection: "column",
   },
   console: {
     height: 70,
     width: 100,
-    borderColor: "red",
-    borderWidth: 1,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  optionsButton: {
+    display: "flex",
+    flexDirection: "column",
+    width: "50%",
+    margin: "2%",
+  },
+  topButton: {
+    height: "50%",
+    borderTopRightRadius: 50,
+    borderTopLeftRadius: 50,
+    backgroundColor: "white",
+    borderBottomColor: "rgba(180, 180, 180, 0.5)",
+    borderBottomWidth: 1,
+  },
+  bottomButton: {
+    height: "50%",
+    borderBottomRightRadius: 50,
+    borderBottomLeftRadius: 50,
+    backgroundColor: "white",
+  },
+  subtractButton: {
+    height: "35%",
+    borderTopRightRadius: 50,
+    borderTopLeftRadius: 50,
+    backgroundColor: "white",
+  },
+  addButton: {
+    height: "35%",
+    borderBottomRightRadius: 50,
+    borderBottomLeftRadius: 50,
+    backgroundColor: "white",
   },
   add: {
     height: 70,
-    width: 50,
+    width: 70,
     borderRadius: 100,
-    borderColor: "red",
-    borderWidth: 1,
+    marginRight: "5%",
+    backgroundColor: "#ef7c66"
   },
 })
 
