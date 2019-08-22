@@ -14,6 +14,7 @@ class Footer extends Component {
   state = {
     mini: true,
     big: false,
+    amount: 1,
   }
 
 
@@ -69,18 +70,37 @@ class Footer extends Component {
               style={styles.optionsButton}
               >
                 <View style={styles.subtractButton}>
-                  <Text style={{textAlign: "center"}}>
-                    -
-                  </Text>
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.state.amount > 0
+                      ?
+                      this.setState({
+                        amount: --this.state.amount
+                      })
+                      : null
+                    }}
+                     >
+                    <Text
+                      style={{textAlign: "center"}}
+                      >-</Text>
+                  </TouchableOpacity>
                 </View>
 
               <Text style={{textAlign: "center"}}>
-                1
+                {this.state.amount}
               </Text>
               <View style={styles.addButton}>
-                <Text style={{textAlign: "center"}}>
-                  +
-                </Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      amount: ++this.state.amount
+                    })
+                  }}
+                   >
+                  <Text
+                    style={{textAlign: "center"}}
+                    >+</Text>
+                </TouchableOpacity>
               </View>
 
             </View>
