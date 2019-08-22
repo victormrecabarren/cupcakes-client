@@ -16,6 +16,19 @@ import Footer from './Footer'
 import ShoppingCart from './ShoppingCart'
 
 class Show extends Component {
+  state = {
+
+  }
+
+  addToCart = (cupcake, amount, mini) => {
+    cupcake.amount = amount
+    cupcake.mini = mini
+    cupcake.big = !mini
+    cupcake.cupcake_id = cupcake.id
+
+    console.log(cupcake)
+  }
+
   render(){
 
     return(
@@ -67,6 +80,7 @@ class Show extends Component {
 
       <SwipeUpDown
       itemMini={<Footer
+                  addToCart={this.addToCart}
                   cupcake={this.props.cupcake}
       />}
       itemFull={<ShoppingCart

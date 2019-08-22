@@ -18,6 +18,7 @@ class Footer extends Component {
   }
 
 
+
   render(){
     return(
       <View style={styles.footer}>
@@ -35,9 +36,15 @@ class Footer extends Component {
                 }
 
               </Text>
-              <Text>
-                mini / 1 dozen
-              </Text>
+
+                {
+                  this.state.mini
+                  ?
+                  <Text>mini / 1 dozen</Text>
+                  :
+                  <Text>big / 1 dozen</Text>
+                }
+
           </View>
         <View
           style={styles.console}
@@ -105,14 +112,17 @@ class Footer extends Component {
 
             </View>
           </View>
-        <View
+        <TouchableOpacity
+          onPress={() => {
+            this.props.addToCart(this.props.cupcake, this.state.amount, this.state.mini)
+          }}
           style={styles.add}
           >
             <Image
               style={{height: 45, width: 45, marginTop: "15%", marginLeft: "17%"}}
               source={{url: "https://cdn.iconscout.com/icon/premium/png-256-thumb/add-to-bag-1-615158.png"}}
              />
-          </View>
+          </TouchableOpacity>
       </View>
     )
   }
