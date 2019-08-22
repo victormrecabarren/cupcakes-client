@@ -29,10 +29,12 @@ class Show extends Component {
        <Text style={styles.type}>
          Cupcakes
        </Text>
+
       <Image
         style={styles.image}
         source={{url: this.props.cupcake.image}}
       />
+
       <View style={styles.descriptionContainer}>
         <View style={styles.infoContainer}>
           <View
@@ -64,9 +66,11 @@ class Show extends Component {
 
 
       <SwipeUpDown
-      itemMini={<Footer/>}
+      itemMini={<Footer
+                  cupcake={this.props.cupcake}
+      />}
       itemFull={<ShoppingCart
-                  item="an item"
+                  cupcake={this.props.cupcake}
        />}
       onShowMini={() => console.log('mini')}
       onShowFull={() => console.log('full')}
@@ -75,7 +79,7 @@ class Show extends Component {
       disablePressToShow={true}
       style={styles.cart}
       animation="easeInEaseOut"
-      swipeHeight={100}
+      swipeHeight={130}
       />
     </View>
     )
@@ -129,11 +133,11 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   show: {
-    backgroundColor: "rgba(255, 235, 228, 1)",
+    backgroundColor: "white",
     height: "100%"
   },
   cart: {
-    backgroundColor: "rgba(255, 200, 200, 1)",
+    backgroundColor: "#FFF0E9",
   }
 })
 
