@@ -29,7 +29,7 @@ class Header extends Component {
       }
 
           <Image
-            style={{textAlign: "center", paddingTop: 110, height: 40, width: 40}}
+            style={{paddingTop: 110, height: 40, width: 40}}
             source={{url: "https://ui-ex.com/images/cupcake-vector-icon-2.png"}}
            />
 

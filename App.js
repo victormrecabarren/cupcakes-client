@@ -45,6 +45,8 @@ class App extends Component {
       cupcakes: cupcakes
     }))
     .catch(err=>console.log(err))
+
+    console.log('fetched');
   }
 
   render() {

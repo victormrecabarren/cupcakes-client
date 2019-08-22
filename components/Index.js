@@ -35,13 +35,14 @@ class Index extends Component {
           </View>
           <View style={styles.indexPage}>
             {
-              this.props.cupcakes.map(cupcake=>(
+              this.props.cupcakes.map((cupcake, i)=>{return (
                 <Link
                   underlayColor="transparent"
                   to="/cupcake"
                   onPress={() => {
                     this.props.chooseCupcake(cupcake)
                   }}
+                  key={i}
                   >
                   <View style={styles.indexItem}>
                     <Image
@@ -54,7 +55,7 @@ class Index extends Component {
                       </View>
                   </View>
                 </Link>
-            ))
+            )})
           }
           </View>
         </ScrollView>

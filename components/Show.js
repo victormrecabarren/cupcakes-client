@@ -17,6 +17,7 @@ import ShoppingCart from './ShoppingCart'
 
 class Show extends Component {
   render(){
+
     return(
       <View style={styles.show}>
       <Header
@@ -63,7 +64,7 @@ class Show extends Component {
 
 
       <SwipeUpDown
-      itemMini={<Footer />}
+      itemMini={<Footer/>}
       itemFull={<ShoppingCart
                   item="an item"
        />}
@@ -72,7 +73,7 @@ class Show extends Component {
       onMoveDown={() => console.log('down')}
       onMoveUp={() => console.log(this.props.cupcake)}
       disablePressToShow={true}
-      style={styles.cart} // style for swipe
+      style={styles.cart}
       animation="easeInEaseOut"
       swipeHeight={100}
       />
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   image: {
-    height: 400,
+    height: 300,
     width: 400,
   },
   title: {

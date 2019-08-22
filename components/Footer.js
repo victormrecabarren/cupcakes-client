@@ -21,9 +21,9 @@ class Footer extends Component {
 const styles = StyleSheet.create({
   footer: {
     flex: 1,
-    backgroundColor: "rgba(255, 200, 200, 1)",
+    backgroundColor: "green",
     width: "100%",
-    height: 50,
+    height: "100%",
   }
 })
 
