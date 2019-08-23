@@ -149,6 +149,7 @@ class Show extends Component {
       />}
       itemFull={<ShoppingCart
                   cupcake={this.props.cupcake}
+                  cartItems={this.state.cartItems}
        />}
       onShowMini={() => console.log('mini')}
       onShowFull={() => console.log('full')}

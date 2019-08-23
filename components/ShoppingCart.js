@@ -12,7 +12,15 @@ class ShoppingCart extends Component {
   render(){
     return(
       <View style={styles.test}>
-        <Text>{this.props.item}</Text>
+        {
+          this.props.cartItems.length
+          ?
+          this.props.cartItems.map(item=>(
+            <Text>{item.name}</Text>
+          ))
+          :
+          <Text>Add items to your cart to check out!</Text>
+        }
       </View>
     )
   }
@@ -21,7 +29,9 @@ class ShoppingCart extends Component {
 const styles = StyleSheet.create({
   test: {
     width: "100%",
-    backgroundColor: "yellow"
+    height: "100%",
+    backgroundColor: "white",
+    borderRadius: 50
   }
 })
 

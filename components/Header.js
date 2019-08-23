@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
   },
   burger: {
     flex: 1,
-    height: 25,
-    width: 25,
+    height: 30,
+    width: 30,
     resizeMode: "contain",
     paddingTop: 120,
     marginRight: 20,
