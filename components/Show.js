@@ -3,11 +3,15 @@ import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
+  Button,
   Image,
   View,
   Text,
   StatusBar,
 } from 'react-native'
+
+import { withNavigation , createStackNavigator, createAppContainer } from 'react-navigation'
+
 // 3rd party libraries
 import SwipeUpDown from 'react-native-swipe-up-down';
 
@@ -21,11 +25,13 @@ class Show extends Component {
   }
 
   componentDidMount() {
+
+
     this.state.cartItems
     ?
     null
     :
-    fetch(this.props.baseURL + '/cart_items')
+    fetch(this.props.navigation.state.params.props.baseURL + '/cart_items')
     .then(res=>res.json())
     .then(cart => this.setState({
       cartItems: cart
@@ -45,7 +51,7 @@ class Show extends Component {
       cupcake[mode] = amount
       cupcake.cupcake_id = cupcake.id
 
-      fetch(this.props.baseURL + '/cart_items', {
+      fetch(this.props.navigation.state.params.props.baseURL + '/cart_items', {
         method: 'POST',
         body: JSON.stringify(
           {
@@ -74,7 +80,7 @@ class Show extends Component {
     })
       mycake[mode] = mycake[mode]+amount
 
-      fetch(this.props.baseURL + '/cart_items/' + mycake.id, {
+      fetch(this.props.navigation.state.params.props.baseURL + '/cart_items/' + mycake.id, {
         method: 'PUT',
         body: JSON.stringify(
           {
@@ -95,13 +101,22 @@ class Show extends Component {
 
   render(){
 
+    const navigation = this.props.navigation.state.params
+
     return(
       <View style={styles.show}>
       <Header
         onShow="true"
        />
+       <Button
+         style={{height: 100, width:100}}
+         title="goback"
+         onPress={() => {
+           this.props.navigation.goBack()
+         }}
+        />
        <Text style={styles.title}>
-         {this.props.cupcake.name}
+         {navigation.props.cupcake.name}
        </Text>
        <Text style={styles.type}>
          Cupcakes
@@ -109,7 +124,7 @@ class Show extends Component {
 
       <Image
         style={styles.image}
-        source={{url: this.props.cupcake.image}}
+        source={{url: navigation.props.cupcake.image}}
       />
 
       <View style={styles.descriptionContainer}>
@@ -121,7 +136,7 @@ class Show extends Component {
               >cal</Text>
             <Text
               style={styles.infoValue}
-              >{this.props.cupcake.calories}</Text>
+              >{navigation.props.cupcake.calories}</Text>
           </View>
           <View
             style={styles.infoData}>
@@ -130,12 +145,12 @@ class Show extends Component {
               >carbs</Text>
             <Text
               style={styles.infoValue}
-              >{this.props.cupcake.carbs}</Text>
+              >{navigation.props.cupcake.carbs}</Text>
           </View>
         </View>
 
         <View style={styles.descriptionBox}>
-          <Text>{this.props.cupcake.description}</Text>
+          <Text>{navigation.props.cupcake.description}</Text>
         </View>
       </View>
 
@@ -145,7 +160,7 @@ class Show extends Component {
       <SwipeUpDown
       itemMini={<Footer
                   addToCart={this.addToCart}
-                  cupcake={this.props.cupcake}
+                  cupcake={navigation.props.cupcake}
       />}
       itemFull={<ShoppingCart
                   cupcake={this.props.cupcake}
@@ -154,14 +169,14 @@ class Show extends Component {
       onShowMini={() => console.log('mini')}
       onShowFull={() => console.log('full')}
       onMoveDown={() => console.log('down')}
-      onMoveUp={() => console.log(this.props.cupcake)}
+      onMoveUp={() => console.log(navigation.props.cupcake)}
       disablePressToShow={true}
       style={styles.cart}
       animation="easeInEaseOut"
       swipeHeight={130}
       />
     </View>
-    )
+     )
   }
 }
 
