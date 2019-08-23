@@ -18,6 +18,7 @@ const MainNavigator = createStackNavigator({
 const AppContainer = createAppContainer(MainNavigator)
 
 export default class App extends Component {
+
   render() {
     return <AppContainer />
   }

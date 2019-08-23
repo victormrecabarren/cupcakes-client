@@ -25,6 +25,17 @@ import { baseURL } from '../constants.js'
 
 class Index extends Component {
 
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {backgroundColor: "rgba(255, 240, 231, 1)"},
+    headerTitle: (
+      <Image
+        style={{paddingTop: 110, height: 40, width: 40}}
+        source={{url: "https://ui-ex.com/images/cupcake-vector-icon-2.png"}}
+       />
+    ),
+  }
+
   state = {
     cupcakes: '',
     selectedCupcake: '',
@@ -59,15 +70,9 @@ class Index extends Component {
 
       <View style={{flex: 1}}>
         <ScrollView
-          stickyHeaderIndices={[0]}
           style={styles.body}
           contentContainerStyle={{paddingBottom: 60}}
           >
-          <View style={styles.header}>
-            <Header
-              goToTop={this.goToTop}
-             />
-          </View>
           <View style={styles.indexPage}>
             {
               this.state.cupcakes.map((cupcake, i)=>{return (

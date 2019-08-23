@@ -20,6 +20,44 @@ import Footer from './Footer'
 import ShoppingCart from './ShoppingCart'
 
 class Show extends Component {
+
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {backgroundColor: "rgba(255, 240, 231, 1)"},
+    headerTitle: (
+      <Image
+        style={{paddingTop: 110, height: 40, width: 40}}
+        source={{url: "https://ui-ex.com/images/cupcake-vector-icon-2.png"}}
+       />
+     ),
+    headerLeft: (
+      <Image
+        style={{
+          flex: 1,
+          height: 25,
+          width: 25,
+          resizeMode: "contain",
+          paddingTop: 120,
+          marginLeft: 20,
+        }}
+        source={{url: 'https://cupcakeshop.s3.amazonaws.com/171489-512.png'}}
+       />
+     ),
+     headerRight: (
+       <Image
+         style={{
+           flex: 1,
+           height: 30,
+           width: 30,
+           resizeMode: "contain",
+           paddingTop: 120,
+           marginRight: 20,
+         }}
+         source={{url: 'https://cupcakeshop.s3.amazonaws.com/134216-512.png'}}
+        />
+     )
+  }
+
   state = {
 
   }
@@ -105,16 +143,6 @@ class Show extends Component {
 
     return(
       <View style={styles.show}>
-      <Header
-        onShow="true"
-       />
-       <Button
-         style={{height: 100, width:100}}
-         title="goback"
-         onPress={() => {
-           this.props.navigation.goBack()
-         }}
-        />
        <Text style={styles.title}>
          {navigation.props.cupcake.name}
        </Text>
