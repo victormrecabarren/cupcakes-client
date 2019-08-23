@@ -46,7 +46,7 @@ class App extends Component {
     }))
     .catch(err=>console.log(err))
 
-    console.log('fetched');
+    console.log('fetched')
   }
 
   render() {
@@ -74,6 +74,7 @@ class App extends Component {
                   <Show
                   {...routeProps}
                   cupcake={this.state.selectedCupcake}
+                  baseURL={baseURL}
                   />
                 )}
               />

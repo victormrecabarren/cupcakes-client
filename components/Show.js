@@ -20,13 +20,77 @@ class Show extends Component {
 
   }
 
-  addToCart = (cupcake, amount, mini) => {
-    cupcake.amount = amount
-    cupcake.mini = mini
-    cupcake.big = !mini
-    cupcake.cupcake_id = cupcake.id
+  componentDidMount() {
+    this.state.cartItems
+    ?
+    null
+    :
+    fetch(this.props.baseURL + '/cart_items')
+    .then(res=>res.json())
+    .then(cart => this.setState({
+      cartItems: cart
+    }))
+  }
 
-    console.log(cupcake)
+  addToCart = (cupcake, amount, mode) => {
+
+    let exists = this.state.cartItems.find((item) => {
+        return cupcake.id === item.cupcake_id
+    })
+
+    if (exists) {
+      console.log('already exists')
+      this.updateCartItem(cupcake, amount, mode)
+    } else {
+      cupcake[mode] = amount
+      cupcake.cupcake_id = cupcake.id
+
+      fetch(this.props.baseURL + '/cart_items', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            cart_item: cupcake
+          }
+        ),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res=>res.json())
+      .then(newCartItem => {
+        updatedCart = [...this.state.cartItems, newCartItem]
+        this.setState({
+          cartItems: updatedCart
+        })
+      })
+      .catch(err=>console.log(err))
+    }
+  }
+
+  updateCartItem = (cupcake, amount, mode) => {
+      mycake = this.state.cartItems.find((item)=>{
+      return cupcake.id === item.cupcake_id
+    })
+      mycake[mode] = mycake[mode]+amount
+
+      fetch(this.props.baseURL + '/cart_items/' + mycake.id, {
+        method: 'PUT',
+        body: JSON.stringify(
+          {
+            cart_item: mycake
+          }
+        ),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res=>res.json())
+      .then(updatedCart => this.setState({
+        cartItems: updatedCart
+      }))
+      .catch(err=>console.log(err))
   }
 
   render(){

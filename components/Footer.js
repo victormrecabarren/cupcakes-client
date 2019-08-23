@@ -12,9 +12,8 @@ import {
 
 class Footer extends Component {
   state = {
-    mini: true,
-    big: false,
-    amount: 1,
+    amount: 0,
+    mode: "mini",
   }
 
 
@@ -28,7 +27,7 @@ class Footer extends Component {
             <Text style={styles.price}
               >
                 {
-                  this.state.mini
+                  this.state.mode==="mini"
                   ?
                   this.props.cupcake.mini_price
                   :
@@ -38,7 +37,7 @@ class Footer extends Component {
               </Text>
 
                 {
-                  this.state.mini
+                  this.state.mode==="mini"
                   ?
                   <Text>mini / 1 dozen</Text>
                   :
@@ -55,7 +54,7 @@ class Footer extends Component {
               <TouchableOpacity
                 style={styles.topButton}
                 onPress={() => {
-                  this.setState({mini:true,big:false})
+                  this.setState({mode:"mini"})
                 }}
                 >
                 <Text style={{    textAlign: "center"}}>mini</Text>
@@ -63,7 +62,7 @@ class Footer extends Component {
               <TouchableOpacity
                 style={styles.bottomButton}
                 onPress={() => {
-                  this.setState({mini:false,big:true})
+                  this.setState({mode:"big"})
                 }}
                 >
                 <Text style={{    textAlign: "center"}}>
@@ -114,7 +113,10 @@ class Footer extends Component {
           </View>
         <TouchableOpacity
           onPress={() => {
-            this.props.addToCart(this.props.cupcake, this.state.amount, this.state.mini)
+            this.state.amount != 0
+            ?
+            this.props.addToCart(this.props.cupcake, this.state.amount, this.state.mode)
+            : null
           }}
           style={styles.add}
           >
