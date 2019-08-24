@@ -38,7 +38,9 @@ class ShoppingCart extends Component {
               this.props.cartItems.map(item=>(
                  item.mini && item.big
                  ?
-                 <>
+                 <View
+                   key={item.id}
+                   >
                  <Swipeout
                    left={[
                      {
@@ -50,10 +52,9 @@ class ShoppingCart extends Component {
                        }
                      }
                    ]}
-                   autoClose='true'
+                   autoClose={true}
                    backgroundColor='transparent'>
                   <View
-                  key={item.id}
                   style={styles.cartItem}>
                     <View>
                       <Image
@@ -111,10 +112,11 @@ class ShoppingCart extends Component {
                      }
                    }
                  ]}
-                  autoClose='true'
-                  backgroundColor='transparent'>
+                  autoClose={true}
+                  backgroundColor='transparent'
+                  key={item.id+100}
+                  >
                   <View
-                  key={item.id + "Big"}
                   style={styles.cartItem}>
                     <View>
                       <Image
@@ -159,7 +161,7 @@ class ShoppingCart extends Component {
                     </View>
                   </View>
                 </Swipeout>
-                </>
+              </View>
                   :
                   item.mini
                   ?
@@ -174,10 +176,11 @@ class ShoppingCart extends Component {
                        }
                      }
                    ]}
-                    autoClose='true'
-                    backgroundColor='transparent'>
+                    autoClose={true}
+                    backgroundColor='transparent'
+                    key={item.id}
+                    >
                   <View
-                  key={item.id}
                   style={styles.cartItem}>
                     <View>
                       <Image
@@ -234,10 +237,11 @@ class ShoppingCart extends Component {
                        }
                      }
                    ]}
-                    autoClose='true'
-                    backgroundColor='transparent'>
+                    autoClose={true}
+                    backgroundColor='transparent'
+                    key={item.id}
+                    >
                   <View
-                  key={item.id}
                   style={styles.cartItem}>
                     <View>
                       <Image
