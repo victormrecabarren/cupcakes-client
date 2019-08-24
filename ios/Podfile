@@ -31,6 +31,8 @@ target 'clientCupcakes' do
 
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'clientCupcakesTests' do
     inherit! :search_paths
     # Pods for testing

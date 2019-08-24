@@ -9,18 +9,37 @@ import {
   Image,
   StatusBar,
   TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native'
 
+import Swipeout from 'react-native-swipeout'
+
+
+
 class ShoppingCart extends Component {
+
+  swipeoutBtns = [
+    {
+      text: 'Delete',
+      backgroundColor: 'red',
+      underlayColor: 'blue',
+      onPress: () => {
+        console.log('deleting cupcake from cart')
+      }
+    }
+  ]
+
   render(){
     return(
       <View style={styles.cartBody}>
         <Text
           style={{fontSize: 40, textAlign: "center", paddingBottom: 50, color: "brown"}}
           >Your cart</Text>
-        <View style={{height: 500}}>
+        <TouchableHighlight style={{height: 300}}>
           <ScrollView
-            style={{display: "flex", flexDirection: "column", borderWidth: 1, borderColor: "red"}}
+            style={{
+              display: "flex", flexDirection: "column",
+            }}
             >
             {
               this.props.cartItems.length
@@ -29,6 +48,10 @@ class ShoppingCart extends Component {
                  item.mini && item.big
                  ?
                  <>
+                 <Swipeout
+                   left={this.swipeoutBtns}
+                   autoClose='true'
+                   backgroundColor='transparent'>
                   <View
                   key={item.id}
                   style={styles.cartItem}>
@@ -46,12 +69,12 @@ class ShoppingCart extends Component {
                         Mini
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown"}}
+                        style={{fontSize: 17, color: "brown"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -75,7 +98,12 @@ class ShoppingCart extends Component {
                         </Text>
                     </View>
                   </View>
+                </Swipeout>
 
+                <Swipeout
+                 left={this.swipeoutBtns}
+                  autoClose='true'
+                  backgroundColor='transparent'>
                   <View
                   key={item.id + "Big"}
                   style={styles.cartItem}>
@@ -93,12 +121,12 @@ class ShoppingCart extends Component {
                         Big
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown"}}
+                        style={{fontSize: 17, color: "brown"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -121,10 +149,15 @@ class ShoppingCart extends Component {
                       </Text>
                     </View>
                   </View>
+                </Swipeout>
                 </>
                   :
                   item.mini
                   ?
+                  <Swipeout
+                   left={this.swipeoutBtns}
+                    autoClose='true'
+                    backgroundColor='transparent'>
                   <View
                   key={item.id}
                   style={styles.cartItem}>
@@ -142,12 +175,12 @@ class ShoppingCart extends Component {
                         Mini
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown"}}
+                        style={{fontSize: 17, color: "brown"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -170,7 +203,12 @@ class ShoppingCart extends Component {
                       </Text>
                     </View>
                   </View>
+                </Swipeout>
                   :
+                  <Swipeout
+                   left={this.swipeoutBtns}
+                    autoClose='true'
+                    backgroundColor='transparent'>
                   <View
                   key={item.id}
                   style={styles.cartItem}>
@@ -188,12 +226,12 @@ class ShoppingCart extends Component {
                         Big
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown"}}
+                        style={{fontSize: 17, color: "brown"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 20, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -216,6 +254,7 @@ class ShoppingCart extends Component {
                       </Text>
                     </View>
                   </View>
+                </Swipeout>
 
 
               ))
@@ -223,8 +262,51 @@ class ShoppingCart extends Component {
               <Text>Add items to your cart to check out!</Text>
             }
           </ScrollView>
-        </View>
-          <Button style={{borderWidth: 2, borderColor: "red", height: 200, width: "100%"}} title="ok"/>
+        </TouchableHighlight>
+          <View style={{borderBottomWidth:1, borderBottomColor: "rgba(200, 200, 200, 0.5)", paddingTop: 10, marginBottom: 10}}></View>
+          <View
+            style={styles.totalsInfo}>
+            <Text
+              style={styles.totalsText}
+              >cart</Text>
+            <Text
+              style={styles.totalsText}
+              >$total</Text>
+          </View>
+          <View
+            style={styles.totalsInfo}>
+            <Text
+              style={styles.totalsText}
+              >shipping</Text>
+            <Text
+              style={styles.totalsText}
+              >$total</Text>
+          </View>
+          <View style={styles.totalsInfo}>
+            <Text
+              style={{fontSize: 22, fontWeight: "bold"}}
+              >total</Text>
+            <Text
+              style={{fontSize: 22, fontWeight: "bold", fontStyle: "italic"}}
+              >$total</Text>
+          </View>
+          <TouchableOpacity
+            style={{
+              height: 70,
+              width: "100%",
+              marginTop: 30,
+              borderRadius: 50,
+              backgroundColor: "rgba(230, 98, 84, 1)",
+              }} >
+            <Text
+              style={{
+                textAlign:"center",
+                padding: 20,
+                color: "white",
+                fontSize: 25
+              }}
+              >Buy now</Text>
+          </TouchableOpacity>
       </View>
     )
   }
@@ -238,7 +320,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     display: "flex",
     flexDirection: "column",
-    paddingTop: 50,
+    paddingTop: 15,
     paddingLeft: 20,
     paddingRight: 20,
   },
@@ -246,7 +328,19 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingBottom: 30,
+    paddingBottom: 20,
+  },
+  totalsInfo: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingTop: 10,
+  },
+  totalsText: {
+    fontSize: 18
+  },
+  bold: {
+    color: "red"
   }
 })
 
