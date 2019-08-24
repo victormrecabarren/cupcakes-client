@@ -105,6 +105,7 @@ class Index extends Component {
                             color: "rgba(100,41,37,1)",
                             fontSize: 20,
                             width: 160,
+                            fontFamily: "Didot",
                           }}
                           >
                           {cupcake.name} Cupcakes

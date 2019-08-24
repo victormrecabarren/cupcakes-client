@@ -22,6 +22,8 @@ import ShoppingCart from './ShoppingCart'
 
 class Show extends Component {
 
+
+
   static navigationOptions = {
 
     headerStyle: {backgroundColor: "rgba(255, 240, 231, 1)"},
@@ -51,22 +53,33 @@ class Show extends Component {
      },
 
      headerRight: (
+       <View>
        <Image
          style={{
            flex: 1,
-           height: 30,
-           width: 30,
+           height: 40,
+           width: 40,
            resizeMode: "contain",
            paddingTop: 120,
            marginRight: 20,
          }}
-         source={{url: 'https://cupcakeshop.s3.amazonaws.com/134216-512.png'}}
+         source={{url: 'https://cupcakeshop.s3.amazonaws.com/3669464-512.png'}}
         />
+        <Text
+          style={{
+            color: "rgba(252, 98, 102, 1)",
+            position:"absolute",
+            top: 40,
+            fontWeight: "bold"
+          }}
+          >
+        </Text>
+      </View>
      )
   }
 
   state = {
-
+    cartTotal: 1
   }
 
   componentDidMount() {
@@ -173,10 +186,27 @@ class Show extends Component {
          Cupcakes
        </Text>
 
-      <Image
-        style={styles.image}
-        source={{url: navigation.props.cupcake.image}}
-      />
+       <View style={{height:300, marginBottom: 0}}>
+       <ScrollView
+         horizontal
+         pagingEnabled
+         showsHorizontalScrollIndicator={false}
+         style={{height: 200}}
+         >
+        <Image
+          style={styles.image}
+          source={{url: navigation.props.cupcake.image}}
+        />
+        <Image
+          style={styles.image}
+          source={{url: navigation.props.cupcake.image1}}
+        />
+        <Image
+          style={styles.image}
+          source={{url: navigation.props.cupcake.image2}}
+        />
+        </ScrollView>
+        </View>
 
       <View style={styles.descriptionContainer}>
         <View style={styles.infoContainer}>
@@ -263,26 +293,34 @@ const styles = StyleSheet.create({
   },
   infoHeader: {
     fontSize: 20,
-    color: "pink",
+    color: "rgba(232,102,83,1)",
     textAlign: "center",
+    fontFamily: "Didot-Italic",
   },
   infoValue: {
     fontSize: 30,
     color: "rgba(100,41,37,1)",
     textAlign: "center",
+    fontFamily: "Didot",
   },
   image: {
     height: 300,
-    width: 400,
+    width: 375,
+    marginBottom: 0
   },
   title: {
     marginTop: 30,
-    fontSize: 40,
-    textAlign: "center"
+    fontSize: 35,
+    textAlign: "center",
+    fontFamily: "Didot",
+    color: "rgba(100,41,37,1)"
   },
   type: {
     textAlign: "center",
-    fontSize: 25
+    fontSize: 25,
+    color: "rgba(232,102,83,1)",
+    fontFamily: "Didot-Italic",
+
   },
   show: {
     backgroundColor: "white",
@@ -294,7 +332,7 @@ const styles = StyleSheet.create({
   descriptionText: {
     color: "rgba(100,41,37,1)",
     fontSize: 15,
-    paddingTop: "40%",
+    paddingTop: "15%",
     width: 150,
   }
 })

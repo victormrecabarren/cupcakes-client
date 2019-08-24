@@ -63,9 +63,9 @@ class Footer extends Component {
                 >
                 <Text style={this.state.mode=="mini"
                   ?
-                  {textAlign: "center", color:"rgba(256, 92, 101, 1)", paddingTop:8}
+                  {textAlign: "center", color:"rgba(256, 92, 101, 1)", paddingTop:8,fontFamily: "Didot"}
                   :
-                  {textAlign:"center",paddingTop:8}}
+                  {textAlign:"center",paddingTop:8, fontFamily: "Didot",color: "rgba(100,41,37,1)"}}
                   >mini</Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -77,9 +77,15 @@ class Footer extends Component {
                 <Text style={
                   this.state.mode=="big"
                   ?
-                  {textAlign: "center", color:"rgba(256, 92, 101, 1)", paddingTop:5}
+                  {textAlign: "center", color:"rgba(256, 92, 101, 1)", paddingTop:5,
+                  fontFamily: "Didot",
+                  }
                   :
-                  {textAlign:"center", paddingTop:5}}>
+                  {textAlign:"center",
+                  paddingTop:5,
+                  fontFamily: "Didot",
+                  color: "rgba(100,41,37,1)"}}>
+
                   big
                 </Text>
               </TouchableOpacity>
@@ -108,7 +114,9 @@ class Footer extends Component {
 
               <Text style={{
                 textAlign: "center",
-                backgroundColor: "white"
+                backgroundColor: "white",
+                color:"rgba(256, 92, 101, 1)",
+                fontFamily: "Didot"
               }}>
                 {this.state.amount}
               </Text>

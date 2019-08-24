@@ -34,7 +34,7 @@ class ShoppingCart extends Component {
     return(
       <View style={styles.cartBody}>
         <Text
-          style={{fontSize: 40, textAlign: "center", paddingBottom: 50, color: "rgba(100,41,37,1)"}}
+          style={{fontSize: 40, textAlign: "center", paddingBottom: 50, color: "rgba(100,41,37,1)", fontFamily: "Didot"}}
           >Your cart</Text>
         <TouchableHighlight style={{height: 300}}>
           <ScrollView
@@ -78,22 +78,22 @@ class ShoppingCart extends Component {
 
                     <View style={{display: "flex", flexDirection: "column", width: 150, paddingTop: 20}}>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 15}}
+                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 15, fontFamily: "Didot"}}
                         >
                         Mini
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", fontFamily: "Didot"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10, fontFamily: "Didot"}}
                         >
                         Cupcakes
                       </Text>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic"}}
+                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic", fontFamily: "Didot"}}
                         >
                         {item.mini_price}
                       </Text>
@@ -142,22 +142,22 @@ class ShoppingCart extends Component {
 
                     <View style={{display: "flex", flexDirection: "column", width: 150, paddingTop: 20}}>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 15}}
+                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 15, fontFamily: "Didot"}}
                         >
                         Big
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", fontFamily: "Didot"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10, fontFamily: "Didot"}}
                         >
                         Cupcakes
                       </Text>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic"}}
+                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic", fontFamily: "Didot"}}
                         >
                         {item.price}
                       </Text>
@@ -181,6 +181,7 @@ class ShoppingCart extends Component {
                   item.mini
                   ?
                   <Swipeout
+                    key={item.id}
                     left={[
                       {
                         text: 'Delete',
@@ -208,22 +209,22 @@ class ShoppingCart extends Component {
 
                     <View style={{display: "flex", flexDirection: "column", width: 150, paddingTop: 20}}>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 15}}
+                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 15, fontFamily: "Didot"}}
                         >
                         Mini
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", fontFamily: "Didot"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10, fontFamily: "Didot"}}
                         >
                         Cupcakes
                       </Text>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic"}}
+                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic", fontFamily: "Didot"}}
                         >
                         {item.mini_price}
                       </Text>
@@ -244,6 +245,7 @@ class ShoppingCart extends Component {
                 </Swipeout>
                   :
                   <Swipeout
+                    key={item.id}
                     left={[
                       {
                         text: 'Delete',
@@ -271,22 +273,22 @@ class ShoppingCart extends Component {
 
                     <View style={{display: "flex", flexDirection: "column", width: 150, paddingTop: 20}}>
                       <Text
-                        style={{color: "rgba(256, 92, 101, 1)", fontSize: 15}}
+                        style={{color: "rgba(256, 92, 101, 1)", fontSize: 15, fontFamily: "Didot"}}
                         >
                         Big
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", fontFamily: "Didot"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10, fontFamily: "Didot"}}
                         >
                         Cupcakes
                       </Text>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic"}}
+                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 16, fontStyle:"italic", fontFamily: "Didot"}}
                         >
                         {item.price}
                       </Text>
@@ -379,7 +381,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingBottom: 20,
+    paddingBottom: 0,
   },
   totalsInfo: {
     display: "flex",
