@@ -96,7 +96,7 @@ class Index extends Component {
                     key={i} style={styles.indexItem}>
                     <Image
                       style={styles.images}
-                      source={{url: cupcake.image}} />
+                      source={{url: cupcake.image2}} />
                       <View
                         style={{display: "flex", flexDirection:"row", justifyContent:"space-between"}}
                         >

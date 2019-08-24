@@ -1,6 +1,6 @@
-const baseURL = `https://6c482eda.ngrok.io`
+// const baseURL = `https://4d7ede6f.ngrok.io`
 
-// const baseURL = 'https://react-rails-spotify.herokuapp.com'
+const baseURL = 'https://mycupcakesapi.herokuapp.com'
 
 export {
   baseURL
