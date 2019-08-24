@@ -39,9 +39,13 @@ class Footer extends Component {
                 {
                   this.state.mode==="mini"
                   ?
-                  <Text>mini / 1 dozen</Text>
+                  <Text
+                    style={{color: "rgba(100,41,37,1)", paddingLeft: 5, fontStyle:"italic"}}
+                    >mini / 1 dozen</Text>
                   :
-                  <Text>big / 1 dozen</Text>
+                  <Text
+                    style={{color: "rgba(100,41,37,1)", paddingLeft: 5, fontStyle:"italic"}}
+                    >big / 1 dozen</Text>
                 }
 
           </View>
@@ -57,7 +61,12 @@ class Footer extends Component {
                   this.setState({mode:"mini"})
                 }}
                 >
-                <Text style={{    textAlign: "center"}}>mini</Text>
+                <Text style={this.state.mode=="mini"
+                  ?
+                  {textAlign: "center", color:"rgba(256, 92, 101, 1)", paddingTop:8}
+                  :
+                  {textAlign:"center",paddingTop:8}}
+                  >mini</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.bottomButton}
@@ -65,7 +74,12 @@ class Footer extends Component {
                   this.setState({mode:"big"})
                 }}
                 >
-                <Text style={{    textAlign: "center"}}>
+                <Text style={
+                  this.state.mode=="big"
+                  ?
+                  {textAlign: "center", color:"rgba(256, 92, 101, 1)", paddingTop:5}
+                  :
+                  {textAlign:"center", paddingTop:5}}>
                   big
                 </Text>
               </TouchableOpacity>
@@ -87,12 +101,15 @@ class Footer extends Component {
                     }}
                      >
                     <Text
-                      style={{textAlign: "center"}}
-                      >-</Text>
+                      style={{textAlign: "center", fontSize: 20, fontWeight:"100"}}
+                      >–</Text>
                   </TouchableOpacity>
                 </View>
 
-              <Text style={{textAlign: "center"}}>
+              <Text style={{
+                textAlign: "center",
+                backgroundColor: "white"
+              }}>
                 {this.state.amount}
               </Text>
               <View style={styles.addButton}>
@@ -104,7 +121,7 @@ class Footer extends Component {
                   }}
                    >
                   <Text
-                    style={{textAlign: "center"}}
+                    style={{textAlign: "center", fontSize: 20, fontWeight: "100"}}
                     >+</Text>
                 </TouchableOpacity>
               </View>
@@ -142,10 +159,9 @@ const styles = StyleSheet.create({
   },
   priceBox: {
     height: 70,
-    width: 120,
-    borderColor: "red",
-    borderWidth: 1,
-    marginLeft: "5%",
+    width: 100,
+    marginLeft: "4%",
+    paddingTop: 10,
     display: "flex",
     flexDirection: "column",
   },
@@ -159,33 +175,33 @@ const styles = StyleSheet.create({
   optionsButton: {
     display: "flex",
     flexDirection: "column",
-    width: "50%",
-    margin: "2%",
+    width: "55%",
+    marginRight: 10,
   },
   topButton: {
     height: "50%",
-    borderTopRightRadius: 50,
-    borderTopLeftRadius: 50,
+    borderTopRightRadius: 60,
+    borderTopLeftRadius: 60,
     backgroundColor: "white",
     borderBottomColor: "rgba(180, 180, 180, 0.5)",
     borderBottomWidth: 1,
   },
   bottomButton: {
     height: "50%",
-    borderBottomRightRadius: 50,
-    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 60,
+    borderBottomLeftRadius: 60,
     backgroundColor: "white",
   },
   subtractButton: {
     height: "35%",
-    borderTopRightRadius: 50,
-    borderTopLeftRadius: 50,
+    borderTopRightRadius: 90,
+    borderTopLeftRadius: 90,
     backgroundColor: "white",
   },
   addButton: {
     height: "35%",
-    borderBottomRightRadius: 50,
-    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 90,
+    borderBottomLeftRadius: 90,
     backgroundColor: "white",
   },
   add: {
@@ -195,6 +211,11 @@ const styles = StyleSheet.create({
     marginRight: "5%",
     backgroundColor: "#ef7c66"
   },
+  price: {
+    color: "rgba(100,41,37,1)",
+    fontSize: 30,
+    fontStyle: "italic"
+  }
 })
 
 export default Footer

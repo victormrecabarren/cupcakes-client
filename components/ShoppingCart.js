@@ -34,7 +34,7 @@ class ShoppingCart extends Component {
     return(
       <View style={styles.cartBody}>
         <Text
-          style={{fontSize: 40, textAlign: "center", paddingBottom: 50, color: "brown"}}
+          style={{fontSize: 40, textAlign: "center", paddingBottom: 50, color: "rgba(100,41,37,1)"}}
           >Your cart</Text>
         <TouchableHighlight style={{height: 300}}>
           <ScrollView
@@ -55,8 +55,8 @@ class ShoppingCart extends Component {
                    left={[
                      {
                        text: 'Delete',
-                       backgroundColor: 'red',
-                       underlayColor: 'blue',
+                       backgroundColor: 'rgba(256, 92, 101, 1)',
+                       underlayColor: 'rgba(220, 0, 0, 1)',
                        onPress: () => {
                          this.props.deleteCartItem(item)
                        }
@@ -83,12 +83,12 @@ class ShoppingCart extends Component {
                         Mini
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -115,19 +115,21 @@ class ShoppingCart extends Component {
                 </Swipeout>
 
                 <Swipeout
-                 left={[
-                   {
-                     text: 'Delete',
-                     backgroundColor: 'red',
-                     underlayColor: 'blue',
-                     onPress: () => {
-                       this.props.deleteCartItem(item)
-                     }
-                   }
-                 ]}
+                  left={[
+                    {
+                      text: 'Delete',
+                      backgroundColor: 'rgba(256, 92, 101, 1)',
+                      underlayColor: 'rgba(220, 0, 0, 1)',
+                      onPress: () => {
+                        this.props.deleteCartItem(item)
+                      }
+                    }
+                  ]}
+                  style={{marginBottom: 20}}
+                  buttonWidth={80}
+                  sensitivity={100}
                   autoClose={true}
                   backgroundColor='transparent'
-                  key={item.id+100}
                   >
                   <View
                   style={styles.cartItem}>
@@ -145,12 +147,12 @@ class ShoppingCart extends Component {
                         Big
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -179,19 +181,21 @@ class ShoppingCart extends Component {
                   item.mini
                   ?
                   <Swipeout
-                   left={[
-                     {
-                       text: 'Delete',
-                       backgroundColor: 'red',
-                       underlayColor: 'blue',
-                       onPress: () => {
-                         this.props.deleteCartItem(item)
-                       }
-                     }
-                   ]}
+                    left={[
+                      {
+                        text: 'Delete',
+                        backgroundColor: 'rgba(256, 92, 101, 1)',
+                        underlayColor: 'rgba(220, 0, 0, 1)',
+                        onPress: () => {
+                          this.props.deleteCartItem(item)
+                        }
+                      }
+                    ]}
+                    style={{marginBottom: 20}}
+                    buttonWidth={80}
+                    sensitivity={100}
                     autoClose={true}
                     backgroundColor='transparent'
-                    key={item.id}
                     >
                   <View
                   style={styles.cartItem}>
@@ -209,12 +213,12 @@ class ShoppingCart extends Component {
                         Mini
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -240,19 +244,21 @@ class ShoppingCart extends Component {
                 </Swipeout>
                   :
                   <Swipeout
-                   left={[
-                     {
-                       text: 'Delete',
-                       backgroundColor: 'red',
-                       underlayColor: 'blue',
-                       onPress: () => {
-                         this.props.deleteCartItem(item)
-                       }
-                     }
-                   ]}
+                    left={[
+                      {
+                        text: 'Delete',
+                        backgroundColor: 'rgba(256, 92, 101, 1)',
+                        underlayColor: 'rgba(220, 0, 0, 1)',
+                        onPress: () => {
+                          this.props.deleteCartItem(item)
+                        }
+                      }
+                    ]}
+                    style={{marginBottom: 20}}
+                    buttonWidth={80}
+                    sensitivity={100}
                     autoClose={true}
                     backgroundColor='transparent'
-                    key={item.id}
                     >
                   <View
                   style={styles.cartItem}>
@@ -265,17 +271,17 @@ class ShoppingCart extends Component {
 
                     <View style={{display: "flex", flexDirection: "column", width: 150, paddingTop: 20}}>
                       <Text
-                        style={{color: "#rgba(256, 92, 101, 1)", fontSize: 15}}
+                        style={{color: "rgba(256, 92, 101, 1)", fontSize: 15}}
                         >
                         Big
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown"}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)"}}
                         >
                         {item.name}
                       </Text>
                       <Text
-                        style={{fontSize: 17, color: "brown", paddingBottom: 10}}
+                        style={{fontSize: 17, color: "rgba(100,41,37,1)", paddingBottom: 10}}
                         >
                         Cupcakes
                       </Text>
@@ -307,6 +313,7 @@ class ShoppingCart extends Component {
             }
           </ScrollView>
         </TouchableHighlight>
+
           <View style={{borderBottomWidth:1, borderBottomColor: "rgba(200, 200, 200, 0.5)", paddingTop: 10, marginBottom: 10}}></View>
           <View
             style={styles.totalsInfo}>
@@ -384,7 +391,7 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   bold: {
-    color: "red"
+    color: "rgba(256, 92, 101, 1)"
   }
 })
 

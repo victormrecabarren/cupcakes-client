@@ -201,7 +201,9 @@ class Show extends Component {
         </View>
 
         <View style={styles.descriptionBox}>
-          <Text>{navigation.props.cupcake.description}</Text>
+          <Text
+            style={styles.descriptionText}
+            >{navigation.props.cupcake.description}</Text>
         </View>
       </View>
 
@@ -234,7 +236,7 @@ class Show extends Component {
 
 const styles = StyleSheet.create({
   descriptionBox: {
-    color: "brown",
+    color: "rgba(100,41,37,1)",
     fontSize: 50,
     flex: 1,
     marginRight: 30,
@@ -250,10 +252,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     marginLeft: 30,
+    marginRight: 30,
+    paddingTop: 40,
+    justifyContent: "space-between"
   },
   infoData: {
     display: "flex",
     flexDirection: "column",
+    paddingTop: 20,
   },
   infoHeader: {
     fontSize: 20,
@@ -261,8 +267,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   infoValue: {
-    fontSize: 40,
-    color: "brown",
+    fontSize: 30,
+    color: "rgba(100,41,37,1)",
     textAlign: "center",
   },
   image: {
@@ -284,6 +290,12 @@ const styles = StyleSheet.create({
   },
   cart: {
     backgroundColor: "#FFF0E9",
+  },
+  descriptionText: {
+    color: "rgba(100,41,37,1)",
+    fontSize: 15,
+    paddingTop: "40%",
+    width: 150,
   }
 })
 

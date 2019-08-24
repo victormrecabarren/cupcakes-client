@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Text,
   StatusBar,
+  ImageBackground,
 } from 'react-native'
 
 import {
@@ -68,10 +69,12 @@ class Index extends Component {
 
       this.state.cupcakes ?
 
-      <View style={{flex: 1}}>
+      <ImageBackground
+        source={{url: "https://wallpaperplay.com/walls/full/3/b/0/233799.jpg"}}
+        style={{flex: 1, width:'100%', height:'100%'}}>
         <ScrollView
           style={styles.body}
-          contentContainerStyle={{paddingBottom: 60}}
+          contentContainerStyle={{paddingBottom: 0, backgroundColor: "transparent"}}
           >
           <View style={styles.indexPage}>
             {
@@ -94,9 +97,24 @@ class Index extends Component {
                     <Image
                       style={styles.images}
                       source={{url: cupcake.image}} />
-                      <View>
-                        <Text>
+                      <View
+                        style={{display: "flex", flexDirection:"row", justifyContent:"space-between"}}
+                        >
+                        <Text
+                          style={{
+                            color: "rgba(100,41,37,1)",
+                            fontSize: 20,
+                            width: 160,
+                          }}
+                          >
                           {cupcake.name} Cupcakes
+                        </Text>
+                        <Text
+                          style={{
+                            color: "rgba(256, 92, 101, 1)"
+                          }}
+                          >
+                          {cupcake.mini_price}
                         </Text>
                       </View>
                   </TouchableOpacity>
@@ -105,7 +123,7 @@ class Index extends Component {
           }
           </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
       :
       null
     )
@@ -114,7 +132,7 @@ class Index extends Component {
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: "white",
+    backgroundColor: "#00000000",
     display: "flex",
     flexDirection: "column",
     flex: 1,
