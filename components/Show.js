@@ -322,13 +322,13 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   infoHeader: {
-    fontSize: 20,
+    fontSize: 30,
     color: "rgba(232,102,83,1)",
     textAlign: "center",
     fontFamily: "Didot-Italic",
   },
   infoValue: {
-    fontSize: 30,
+    fontSize: 45,
     color: "rgba(100,41,37,1)",
     textAlign: "center",
     fontFamily: "Didot",
@@ -361,8 +361,7 @@ const styles = StyleSheet.create({
   },
   descriptionText: {
     color: "rgba(100,41,37,1)",
-    fontSize: 15,
-
+    fontSize: 18,
     width: 170,
   }
 })

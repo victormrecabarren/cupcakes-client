@@ -103,8 +103,8 @@ class Index extends Component {
                         <Text
                           style={{
                             color: "rgba(100,41,37,1)",
-                            fontSize: 20,
-                            width: 160,
+                            fontSize: 30,
+                            width: 200,
                             fontFamily: "Didot",
                           }}
                           >
@@ -112,7 +112,10 @@ class Index extends Component {
                         </Text>
                         <Text
                           style={{
-                            color: "rgba(256, 92, 101, 1)"
+                            color: "rgba(256, 92, 101, 1)",
+                            fontSize: 20,
+                            fontFamily: "Didot-Bold",
+                            fontWeight: "bold"
                           }}
                           >
                           {cupcake.mini_price}
