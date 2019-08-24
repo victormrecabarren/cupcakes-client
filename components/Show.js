@@ -177,6 +177,24 @@ class Show extends Component {
 
     const navigation = this.props.navigation.state.params
 
+    let descriptionSentences = navigation.props.cupcake.description.match(/[^\.\!\?]*[\.\!\?]/g).map((sentence)=>{
+      	return sentence[0] == ' '
+      	?
+      	sentence.substring(1,100)
+      	:
+      	sentence
+      })
+
+    // descriptionSentences.map((sentence)=>{
+    //   	return sentence[0] == ' '
+    //   	?
+    //   	sentence.substring(1,100)
+    //   	:
+    //   	sentence
+    //   })
+
+
+
     return(
       <View style={styles.show}>
        <Text style={styles.title}>
@@ -231,9 +249,17 @@ class Show extends Component {
         </View>
 
         <View style={styles.descriptionBox}>
-          <Text
+
+          {
+            descriptionSentences.map(sentence=>(
+              <Text
+                style={styles.descriptionText}
+                >{sentence}</Text>
+            ))
+          }
+          {/* <Text
             style={styles.descriptionText}
-            >{navigation.props.cupcake.description}</Text>
+            >{navigation.props.cupcake.description}</Text> */}
         </View>
       </View>
 
@@ -270,6 +296,10 @@ const styles = StyleSheet.create({
     fontSize: 50,
     flex: 1,
     marginRight: 30,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    height: 180
   },
   descriptionContainer: {
     display: "flex",
@@ -332,8 +362,8 @@ const styles = StyleSheet.create({
   descriptionText: {
     color: "rgba(100,41,37,1)",
     fontSize: 15,
-    paddingTop: "15%",
-    width: 150,
+
+    width: 170,
   }
 })
 
