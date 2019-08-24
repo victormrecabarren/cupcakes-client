@@ -62,6 +62,9 @@ class ShoppingCart extends Component {
                        }
                      }
                    ]}
+                   style={{marginBottom: 20}}
+                   buttonWidth={80}
+                   sensitivity={100}
                    autoClose={true}
                    backgroundColor='transparent'>
                   <View

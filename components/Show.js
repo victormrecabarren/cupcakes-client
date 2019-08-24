@@ -8,6 +8,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native'
 
 import { withNavigation , createStackNavigator, createAppContainer } from 'react-navigation'
@@ -22,7 +23,7 @@ import ShoppingCart from './ShoppingCart'
 class Show extends Component {
 
   static navigationOptions = {
-    title: 'Home',
+
     headerStyle: {backgroundColor: "rgba(255, 240, 231, 1)"},
     headerTitle: (
       <Image
@@ -30,7 +31,8 @@ class Show extends Component {
         source={{url: "https://ui-ex.com/images/cupcake-vector-icon-2.png"}}
        />
      ),
-    headerLeft: (
+
+     headerBackImage: (
       <Image
         style={{
           flex: 1,
@@ -43,6 +45,11 @@ class Show extends Component {
         source={{url: 'https://cupcakeshop.s3.amazonaws.com/171489-512.png'}}
        />
      ),
+
+     headerBackTitleStyle: {
+       color: "rgba(255, 240, 231, 1)",
+     },
+
      headerRight: (
        <Image
          style={{
