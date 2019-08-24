@@ -21,6 +21,16 @@ class ShoppingCart extends Component {
 
   render(){
 
+    let total = 0
+
+
+    this.props.cartItems.forEach((item) => {
+      miniNum = +item.mini_price.substring(1,20)
+      total+=(miniNum*item.mini)
+      bigNum = +item.price.substring(1,20)
+      total+=(bigNum*item.big)
+    })
+
     return(
       <View style={styles.cartBody}>
         <Text
@@ -302,7 +312,7 @@ class ShoppingCart extends Component {
               >cart</Text>
             <Text
               style={styles.totalsText}
-              >$total</Text>
+              >${`${total}.00`}</Text>
           </View>
           <View
             style={styles.totalsInfo}>
@@ -311,7 +321,7 @@ class ShoppingCart extends Component {
               >shipping</Text>
             <Text
               style={styles.totalsText}
-              >$total</Text>
+              >$8.50</Text>
           </View>
           <View style={styles.totalsInfo}>
             <Text
@@ -319,7 +329,7 @@ class ShoppingCart extends Component {
               >total</Text>
             <Text
               style={{fontSize: 22, fontWeight: "bold", fontStyle: "italic"}}
-              >$total</Text>
+              >${`${total+8.50}0`}</Text>
           </View>
           <TouchableOpacity
             style={{
