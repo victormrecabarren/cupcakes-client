@@ -18,18 +18,9 @@ import Swipeout from 'react-native-swipeout'
 
 class ShoppingCart extends Component {
 
-  swipeoutBtns = [
-    {
-      text: 'Delete',
-      backgroundColor: 'red',
-      underlayColor: 'blue',
-      onPress: () => {
-        console.log('deleting cupcake from cart')
-      }
-    }
-  ]
 
   render(){
+
     return(
       <View style={styles.cartBody}>
         <Text
@@ -49,7 +40,16 @@ class ShoppingCart extends Component {
                  ?
                  <>
                  <Swipeout
-                   left={this.swipeoutBtns}
+                   left={[
+                     {
+                       text: 'Delete',
+                       backgroundColor: 'red',
+                       underlayColor: 'blue',
+                       onPress: () => {
+                         this.props.deleteCartItem(item)
+                       }
+                     }
+                   ]}
                    autoClose='true'
                    backgroundColor='transparent'>
                   <View
@@ -101,7 +101,16 @@ class ShoppingCart extends Component {
                 </Swipeout>
 
                 <Swipeout
-                 left={this.swipeoutBtns}
+                 left={[
+                   {
+                     text: 'Delete',
+                     backgroundColor: 'red',
+                     underlayColor: 'blue',
+                     onPress: () => {
+                       this.props.deleteCartItem(item)
+                     }
+                   }
+                 ]}
                   autoClose='true'
                   backgroundColor='transparent'>
                   <View
@@ -155,7 +164,16 @@ class ShoppingCart extends Component {
                   item.mini
                   ?
                   <Swipeout
-                   left={this.swipeoutBtns}
+                   left={[
+                     {
+                       text: 'Delete',
+                       backgroundColor: 'red',
+                       underlayColor: 'blue',
+                       onPress: () => {
+                         this.props.deleteCartItem(item)
+                       }
+                     }
+                   ]}
                     autoClose='true'
                     backgroundColor='transparent'>
                   <View
@@ -206,7 +224,16 @@ class ShoppingCart extends Component {
                 </Swipeout>
                   :
                   <Swipeout
-                   left={this.swipeoutBtns}
+                   left={[
+                     {
+                       text: 'Delete',
+                       backgroundColor: 'red',
+                       underlayColor: 'blue',
+                       onPress: () => {
+                         this.props.deleteCartItem(item)
+                       }
+                     }
+                   ]}
                     autoClose='true'
                     backgroundColor='transparent'>
                   <View

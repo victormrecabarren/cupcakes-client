@@ -137,6 +137,22 @@ class Show extends Component {
       .catch(err=>console.log(err))
   }
 
+  deleteCartItem = (cupcake) => {
+    console.log(cupcake);
+    fetch(this.props.navigation.state.params.props.baseURL + '/cart_items/' + cupcake.id, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res=>res.json())
+    .then(updatedCart=> this.setState({
+      cartItems: updatedCart
+    }))
+    .catch(err=>console.log(err))
+  }
+
   render(){
 
     const navigation = this.props.navigation.state.params
@@ -193,6 +209,7 @@ class Show extends Component {
       itemFull={<ShoppingCart
                   cupcake={this.props.cupcake}
                   cartItems={this.state.cartItems}
+                  deleteCartItem={this.deleteCartItem}
        />}
       onShowMini={() => console.log('mini')}
       onShowFull={() => console.log('full')}
